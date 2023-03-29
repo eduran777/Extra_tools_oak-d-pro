@@ -9,12 +9,12 @@ FRAME_WIDTH, FRAME_HEIGHT = 1280, 720
 MAP_WIDTH, MAP_HEIGHT = 240, 320
 # Load the video
 cap = cv2.VideoCapture('/Users/usuario/Documents/Frames/Frames interpolacion/routeClip3fps/Clip6.mp4')
-
+#dd
 def formatC(cf):
     cf = cf[0:len(cf)-1]
     return float(cf)
 
-
+#fixfixfix
 # Create a map centered at the first GPS point
 #gps_points = [(lat, lon) for lat, lon in zip(latitudes, longitudes)]
 mapBog = folium.Map(location=[4.657837499999999,-74.05332609999999],zoom_start=13, width=MAP_WIDTH, height=MAP_HEIGHT)
@@ -47,11 +47,12 @@ while cap.isOpened():
     map_img = cv2.imdecode(np.frombuffer(map_img, np.uint8), cv2.IMREAD_UNCHANGED)
     map_img = cv2.resize(map_img, (MAP_WIDTH, 400))
     # Combine the map and the frame
-    combined = np.zeros((FRAME_HEIGHT, FRAME_WIDTH, 4), np.uint8)
-    combined[MAP_HEIGHT:FRAME_HEIGHT, 0:MAP_WIDTH] = map_img
+    combined = np.zeros((FRAME_HEIGHT, FRAME_WIDTH-630, 4), np.uint8)
+
     print(combined.shape)
 
-    combined[0:192, 280:FRAME_WIDTH] = frame
+    combined[0:400, 0:640,0:3] = frame
+    combined[MAP_HEIGHT:FRAME_HEIGHT, 0:MAP_WIDTH] = map_img
     # Display the combined image in a window
     cv2.imshow('Frame with Map', combined)
     if cv2.waitKey(25) & 0xFF == ord('q'):
