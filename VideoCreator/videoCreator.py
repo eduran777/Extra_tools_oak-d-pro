@@ -3,9 +3,9 @@ import cv2
 import os
 
 
-in_path = '/Users/usuario/Documents/Frames/Frames interpolacion/1-1944301041BBED1200-left/'
+in_path = '/Users/usuario/Documents/Pruebas video con mapa /Clip con ruta 1 frames/'
 
-out_path = '/Users/usuario/Documents/Frames/Frames interpolacion/routeClip3fps/'
+out_path = '/Users/usuario/Documents/Pruebas video con mapa /clip con ruta /'
 
 out_video_name = 'Clip6.mp4'
 
